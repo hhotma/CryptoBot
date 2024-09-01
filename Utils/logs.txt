@@ -1,0 +1,20 @@
+Info | Battery Manager | 29/08/2024 09:02:27 | initiated..
+Info | Telegram Bot | 29/08/2024 09:02:27 | starting listening handle
+Info | Telegram Bot | 29/08/2024 09:02:30 | signal detected
+Info | Instance Manager | 29/08/2024 09:02:30 | handling instances with signal: 
+Info | Instance Manager | 29/08/2024 09:02:30 | ['GUSDT', [[0.0382, 100]], [[0.0386, 45], [0.0391, 50], [0.0396, 100]], [[0.0189, 100]]]
+Info | Binance Bot | main |  | 29/08/2024 09:02:30 | Binance Bot | main | Starting to handle request
+Info | Binance Bot | main |  | 29/08/2024 09:02:33 | Binance Bot | main | Created new market order | Id: 28048429 Side: BUY Quantity: 656.0
+Info | Binance Bot | main |  | 29/08/2024 09:02:34 | Binance Bot | main | Created new TP | Id: 28048436 Side: SELL Stop price: 0.0386
+Info | Binance Bot | main |  | 29/08/2024 09:02:34 | Binance Bot | main | Created new TP | Id: 28048437 Side: SELL Stop price: 0.0391
+Info | Binance Bot | main |  | 29/08/2024 09:02:34 | Binance Bot | main | Created new TP | Id: 28048439 Side: SELL Stop price: 0.0396
+Info | Binance Bot | main |  | 29/08/2024 09:02:34 | Binance Bot | main | Created new SL | Id: 28048442 Side: SELL Stop price: 0.0189
+Info | Telegram Bot | 29/08/2024 09:03:51 | signal detected
+Info | Instance Manager | 29/08/2024 09:03:51 | handling instances with signal: 
+Info | Instance Manager | 29/08/2024 09:03:51 | ['BAKEUSDT', [[0.266, 100]], [[0.269, 45], [0.273, 50], [0.277, 100]], [[0.127, 100]]]
+Info | Binance Bot | main |  | 29/08/2024 09:03:51 | Binance Bot | main | Starting to handle request
+Info | Binance Bot | main |  | 29/08/2024 09:03:54 | Binance Bot | main | Created new market order | Id: 7520420483 Side: BUY Quantity: 94.0
+Info | Binance Bot | main |  | 29/08/2024 09:03:54 | Binance Bot | main | Created new TP | Id: 7520420488 Side: SELL Stop price: 0.269
+Info | Binance Bot | main |  | 29/08/2024 09:03:55 | Binance Bot | main | Created new TP | Id: 7520420492 Side: SELL Stop price: 0.273
+Info | Binance Bot | main |  | 29/08/2024 09:03:55 | Binance Bot | main | Created new TP | Id: 7520420507 Side: SELL Stop price: 0.277
+Info | Binance Bot | main |  | 29/08/2024 09:03:55 | Binance Bot | main | Created new SL | Id: 7520420509 Side: SELL Stop price: 0.127

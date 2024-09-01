@@ -1,0 +1,10 @@
+FOR FUTURE:
+    main instance
+        - one threaded listener for all instances
+        - move repetetive task to main instance
+
+    sub instances in local threads
+        - manage things that can happen only locally
+
+NOW:
+    add hedge mode positions

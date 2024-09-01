@@ -1,0 +1,49 @@
+{
+    "telegram": {
+        "api_id": 28125588,
+        "api_hash": "a92f660305b560026b3d3df990ef572c",
+        "messages": [
+            {
+                "key_words": ["ENTRY", "SHORT", "LONG", "TP", "SL"],
+                "minimum_threshold": 4,
+                "coin": [
+                    {
+                        "before": "$",
+                        "after": "USDT"
+                    }
+                ],
+                "current_price": [
+                    {
+                        "before": "-",
+                        "after": "\n",
+                        "amount": 100
+                    }
+                ],
+                "take_profit": [
+                    {
+                        "before": "TP1:",
+                        "after": "\n",
+                        "amount": 45
+                    },
+                    {
+                        "before": "TP2:",
+                        "after": "\n",
+                        "amount": 50
+                    },
+                    {
+                        "before": "TP3:",
+                        "after": "\n",
+                        "amount": 100
+                    }
+                ],
+                "stop_loss": [
+                    {
+                        "before": "SL:",
+                        "after": "\n",
+                        "amount": 100
+                    }
+                ]
+            }
+        ]
+    }
+}
