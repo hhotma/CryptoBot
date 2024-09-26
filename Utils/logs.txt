@@ -1,4 +1,0 @@
-Info | Battery Manager | 05/09/2024 22:40:52 | initiated..
-Info | Telegram Bot | 05/09/2024 22:40:52 | starting listening handle
-Info | Telegram Bot | 05/09/2024 22:40:58 | signal detected
-Info | Instance Manager | 05/09/2024 22:40:58 | handling instances with signal: 
