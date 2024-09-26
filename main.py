@@ -1,5 +1,8 @@
-from Phone.PhoneHandler import PhoneHandler
+from Phone.BatteryManager import BatteryManager
+from Telegram.TelegramBot import TelegramBot
 
 if __name__ == "__main__":
-    phoneHandler = PhoneHandler()
-    phoneHandler.start()
+    telegramBot = TelegramBot()
+    # batteryManager = BatteryManager()
+
+    telegramBot.start()

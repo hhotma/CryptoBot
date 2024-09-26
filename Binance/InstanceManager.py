@@ -13,12 +13,13 @@ class InstanceManager:
 
     def handleSignal(self, args):
         self.__logger.Log("handling instances with signal: ")
-        self.__logger.Log(str(args))
+        # self.__logger.Log(str(args))
+        print(args)
 
-        for acc in self.__instances:
-            th = Thread(target=acc.handleArgs, args=(args, ))
-            th.daemon = True
-            th.start()
+        # for acc in self.__instances:
+        #     th = Thread(target=acc.handleArgs, args=(args, ))
+        #     th.daemon = True
+        #     th.start()
 
     def __initInstances(self, instances):
         for acc in instances:

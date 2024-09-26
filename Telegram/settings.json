@@ -6,7 +6,7 @@
             {
                 "key_words": ["ENTRY", "SHORT", "LONG", "TP", "SL"],
                 "minimum_threshold": 4,
-                "coin": [
+                "symbol": [
                     {
                         "before": "$",
                         "after": "USDT"

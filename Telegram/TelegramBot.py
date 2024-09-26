@@ -5,6 +5,8 @@ from Utils.Database import Database
 from Utils.Logger import Logger
 from Binance.InstanceManager import InstanceManager
 
+from Strategies.NoSL import NoSL
+
 class TelegramBot:
     def __init__(self):
         self.__instanceManager = InstanceManager()
@@ -277,23 +279,31 @@ class TelegramBot:
 
     def __argsFromText(self, msg, msgId):
         msgArgs = self.__settings["messages"][msgId]
-        keywords = [msgArgs["coin"], msgArgs["current_price"], msgArgs["take_profit"], msgArgs["stop_loss"]]
-        args = []
+        keywords = {
+            "symbol": msgArgs["symbol"], 
+            "cp": msgArgs["current_price"], 
+            "tp": msgArgs["take_profit"], 
+            "sl": msgArgs["stop_loss"]
+        }
 
-        for i, keywordType in enumerate(keywords):
-            if i == 0:
-                val = msg.split(keywordType[0]["after"])[0].split(keywordType[0]["before"])
-                args.append(val[len(val)-1] + "USDT")
-                continue
-            
+        args = {}
+
+        for keywordType in keywords:
+
             values = []
-            for keyword in keywordType:
-                if keyword["before"] in msg:
-                    val = msg.split(keyword["before"])[1].split(keyword["after"])[0]
+            for keyword in keywords[keywordType]:
+                if keyword["before"] not in msg: continue
+                
+                val = msg.split(keyword["before"])[1].split(keyword["after"])[0]
+
+                try:
                     val = float(val)
+                except:
+                    values.append(val)
+                else:
                     values.append([val, keyword["amount"]])
 
-            if len(values) > 0: args.append(values)
+            args[keywordType] = values
 
         return args
 
@@ -328,6 +338,10 @@ class TelegramBot:
                 await self.__detectCommand(event)
             else:
                 self.__logger.Log("signal detected")
+
+                # TESTING STRATEGIES
+                noSl = NoSL()
+                args = noSl(args)
                 self.__instanceManager.handleSignal(args)
         
         client.run_until_disconnected()
