@@ -4,42 +4,40 @@
         "api_hash": "a92f660305b560026b3d3df990ef572c",
         "messages": [
             {
-                "key_words": ["ENTRY", "SHORT", "LONG", "TP", "SL"],
+                "id": 1,
+                "name": "Superman",
+                "key_words": [
+                    "Вход",
+                    "Цель",
+                    "Стоп",
+                    "long",
+                    "short"
+                ],
                 "minimum_threshold": 4,
                 "symbol": [
                     {
-                        "before": "$",
+                        "before": "#",
                         "after": "USDT"
                     }
                 ],
                 "current_price": [
                     {
-                        "before": "-",
-                        "after": "\n",
+                        "before": "Вход:",
+                        "after": "(",
                         "amount": 100
                     }
                 ],
                 "take_profit": [
                     {
-                        "before": "TP1:",
-                        "after": "\n",
-                        "amount": 45
-                    },
-                    {
-                        "before": "TP2:",
-                        "after": "\n",
-                        "amount": 50
-                    },
-                    {
-                        "before": "TP3:",
-                        "after": "\n",
+                        "before": "Цель:",
+                        "after": "(",
                         "amount": 100
                     }
                 ],
                 "stop_loss": [
                     {
-                        "before": "SL:",
-                        "after": "\n",
+                        "before": "Стоп:",
+                        "after": "(",
                         "amount": 100
                     }
                 ]

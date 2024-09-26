@@ -1,8 +1,9 @@
 from datetime import datetime
-from colorama import Fore, Style
+from colorama import init, Fore, Style
 
 class Logger:
     def __init__(self, logPre):
+        init(convert=True)
         self.filename = "Utils/logs.txt"
         self.__createFile()
         self.printLogs = True

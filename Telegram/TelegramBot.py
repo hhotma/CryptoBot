@@ -222,10 +222,13 @@ class TelegramBot:
         await event.respond(text)
 
 
+    # --------------- MESSAGE DETECTION STUFF --------------
+
     async def __detectCommand(self, event):
         sender = await event.get_sender()
         if sender.username not in self.__database.getAllowedUsernames(): return
         if not isinstance(event.peer_id, PeerUser): return
+        if event.raw_text[0] != "/": return
 
         isAdmin = self.__database.isAdmin(sender.username)
         text = event.raw_text
@@ -274,11 +277,42 @@ class TelegramBot:
 
         else:
             await event.respond("unknown command")
+    
+    # async def __detectCMD(self, event):
+    #     sender = await event.get_sender()
+    #     if sender.username not in self.__database.getAllowedUsernames(): return
+    #     if not isinstance(event.peer_id, PeerUser): return
+    #     if event.raw_text[0] != "/": return
 
-    # --------------- SIGNAL DETECTION STUFF --------------
+    #     isAdmin = self.__database.isAdmin(sender.username)
+    #     text = event.raw_text
+
+    #     self.__logger.Log("command from " + sender.username + " detected is admin: " + str(isAdmin))
+
+    #     command = [m for m in self.__settings["commands"] if m["cmd"] in text][0]
+
+    #     # unknowm command 
+    #     if command == []: 
+    #         await event.respond("Unknown command")
+    #         return
+        
+    #     # user does not have permission
+    #     if command["admin"] == True and not isAdmin:
+    #         await event.respond("You don't have permission")
+    #         return
+        
+    #     # CHECK FOR ARGS
+    #     args = [] #extract args and pass them to method
+
+    #     # find definition
+    #     method = getattr(self, command["call"])
+    #     method(args)
+
+
 
     def __argsFromText(self, msg, msgId):
-        msgArgs = self.__settings["messages"][msgId]
+        msgArgs = [m for m in self.__settings["messages"] if m["id"] == msgId]
+
         keywords = {
             "symbol": msgArgs["symbol"], 
             "cp": msgArgs["current_price"], 
@@ -308,14 +342,14 @@ class TelegramBot:
         return args
 
     def __filterMessage(self, text):
-        for i, msg in enumerate(self.__settings["messages"]):
+        for msg in self.__settings["messages"]:
             count = 0
             for word in msg["key_words"]:
                 if word in text:
                     count += 1
 
             if count >= msg["minimum_threshold"]:
-                return i
+                return msg["id"]
         return -1
 
     def __detectSignal(self, event):
@@ -340,8 +374,8 @@ class TelegramBot:
                 self.__logger.Log("signal detected")
 
                 # TESTING STRATEGIES
-                noSl = NoSL()
-                args = noSl(args)
-                self.__instanceManager.handleSignal(args)
+                # noSl = NoSL()
+                # args = noSl(args)
+                # self.__instanceManager.handleSignal(args)
         
         client.run_until_disconnected()
