@@ -1,6 +1,7 @@
 # custom
 *.jpg
 *.session
+*.session-journal
 *.txt
 
 # Byte-compiled / optimized / DLL files
